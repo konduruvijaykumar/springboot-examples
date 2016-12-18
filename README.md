@@ -1,2 +1,2 @@
 # springboot-examples
-springboot mvc and rest webservices examplea
+springboot mvc and rest webservices examples

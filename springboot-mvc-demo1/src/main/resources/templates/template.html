@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- http://stackoverflow.com/questions/16526248/the-element-type-meta-must-be-terminated-by-the-matching-end-tag-meta -->
+<!-- I hate this below line which gave many issues while processing files from templates folder, thymeleaf does not understand this tag and will give you issues -->
+<!-- <meta charset="ISO-8859-1"> -->
+<title>Spring boot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>From Templates resource folder - template.html file</h1>
+	<p th:text="'Hello, ' + ${name} + '!'" />
+</body>
+</html>

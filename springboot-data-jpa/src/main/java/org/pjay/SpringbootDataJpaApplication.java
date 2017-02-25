@@ -35,6 +35,13 @@ import org.springframework.context.annotation.Bean;
 //IMP: have spring-boot-starter-web, spring-boot-starter-security dependency this only had jpa
 //http://stackoverflow.com/questions/30958968/spring-framework-unable-to-start-embedded-container
 
+// IMP: Creating DB Schema and Adding data using sql scripts in spring boot. "schema.xml and data.xml" but this happens every time the application runs.
+// Note: If you want to use the schema.sql initialization in a JPA app (with Hibernate) then ddl-auto=create-drop will lead to errors if Hibernate tries to create the same tables. 
+// To avoid those errors set ddl-auto explicitly to "" (preferable) or "none". Whether or not you use ddl-auto=create-drop you can always use data.sql to initialize new data.
+// https://docs.spring.io/spring-boot/docs/current/reference/html/howto-database-initialization.html
+// https://dzone.com/articles/spring-boot-and-databasenbspinitialization
+// http://stackoverflow.com/questions/39280340/spring-boot-run-sql-scripts-and-get-data-on-application-startup
+
 //IMP: if you run as maven install you will see the dB schema name which is for test cases before generating war. if want to use a different name change properties in application.properties
 //2017-02-23 17:53:22.046  INFO 10476 --- [           main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:86baaa14-547c-4232-95d0-4c5733cc8da7;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
 //2017-02-23 17:53:22.510  INFO 10476 --- [           main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
@@ -125,7 +132,8 @@ public class SpringbootDataJpaApplication {
 			log.info("User found with findByFirstnameAndLastname(firstname, lastname):");
 			log.info("===========================================");
 			//log.info(repository.findByFirstnameAndLastname("Vijay","Konduru").toString());
-			log.info(repository.findByFirstnameAndLastname("John","Doe").toString());
+			//log.info(repository.findByFirstnameAndLastname("John","Doe").toString());
+			log.info(repository.findByFirstnameAndLastname("John","White").toString());
 			log.info("");
 			
 		};

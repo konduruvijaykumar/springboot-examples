@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  * @author vijayk
@@ -22,6 +23,11 @@ import javax.persistence.NamedQuery;
 // http://stackoverflow.com/questions/38337453/customizing-spring-data-repository-bean-names-for-use-with-multiple-data-sources
 
 @Entity
+//IMP: error in console -- syntax error at or near "user"
+//http://stackoverflow.com/questions/9035971/error-syntax-error-at-or-near-user
+//http://stackoverflow.com/questions/17266784/syntax-error-at-or-near-user-when-adding-postgres-constraint/17266791
+//http://stackoverflow.com/questions/37980463/postgres-not-creating-tables-properly-with-hibernate
+@Table(name="USER_INFO")
 @NamedQuery(name = "User.findByTheUsersFirstName", query = "from User u where u.first_name = ?1")
 public class User {
 

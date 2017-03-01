@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
 //IMP: h2 DB
@@ -43,8 +45,11 @@ import org.springframework.context.annotation.Bean;
 // http://stackoverflow.com/questions/15922991/is-spring-annotation-controller-same-as-service
 // http://javapapers.com/spring/spring-component-service-repository-controller-difference/
 
+//IMP: http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-create-a-deployable-war-file
+//http://stackoverflow.com/questions/27904594/spring-boot-war-deployed-to-tomcat
+
 @SpringBootApplication
-public class SecurityCredentialsApiApplication {
+public class SecurityCredentialsApiApplication extends SpringBootServletInitializer{
 	
 	private static final Logger log = LoggerFactory.getLogger(SecurityCredentialsApiApplication.class);
 	
@@ -54,6 +59,11 @@ public class SecurityCredentialsApiApplication {
 		@Autowired
 		Results results;
 	*/
+	
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(SecurityCredentialsApiApplication.class);
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(SecurityCredentialsApiApplication.class, args);

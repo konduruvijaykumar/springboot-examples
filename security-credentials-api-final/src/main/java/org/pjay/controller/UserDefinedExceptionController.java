@@ -22,6 +22,7 @@ public class UserDefinedExceptionController {
 	public ResponseEntity<Results> getException1() throws UserDefinedException, Exception{
 		try {
 			int var = 20/0;
+			System.out.println("var :: " + var);
 		} catch (ArithmeticException e/*Exception e*/) {
 			throw new UserDefinedException(e);
 		}

@@ -1,0 +1,10 @@
+---
+applications:
+- name: vj-predix-httpdata
+  memory: 1G
+  instances: 1
+  path: ./target/predix-httpdata-0.0.1-SNAPSHOT.war
+
+
+#env:
+    #SPRING_PROFILES_ACTIVE: cloud
